@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: -apple-system, 'Segoe UI', Calibri, Arial, sans-serif;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+h1 {
+  color: #1E2761;
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #5B6478;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.routes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.route-card {
+  border-radius: 12px;
+  padding: 20px 24px;
+  background: #F5F8FE;
+  border: 1px solid #DCE4F5;
+}
+
+.route-card.recommended {
+  background: #EAF7F0;
+  border: 1px solid #34A870;
+}
+
+.route-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.route-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #1E2761;
+}
+
+.route-card.recommended .route-label {
+  color: #34A870;
+}
+
+.route-eta {
+  font-size: 22px;
+  font-weight: bold;
+  color: #E8544E;
+}
+
+.route-card.recommended .route-eta {
+  color: #34A870;
+}
+
+.route-tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.route-tags li {
+  font-size: 13px;
+  color: #5B6478;
+}
+
+.route-tags li::before {
+  content: "• ";
+}
+
+.explanation-box {
+  background: #1E2761;
+  color: white;
+  padding: 20px 24px;
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+}
