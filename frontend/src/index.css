@@ -10,6 +10,19 @@ body {
   justify-content: center;
 }
 
+/* NEW: let the page fill the window while keeping the phone screen centred */
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* NEW: landing page takes the full width */
+.landing {
+  width: 100%;
+  min-width: 0;
+}
+
 .phone-screen {
   width: 390px;
   height: 844px;

@@ -1,61 +1,18 @@
 import './LandingPage.css'
 import { useNavigate } from 'react-router-dom'
 import {
-  ArrowRight, PlayCircle, Car, Gauge, MessageSquareText,
+  ArrowRight, Car, Gauge, MessageSquareText,
   User, Route as RouteIcon, Signpost, Sparkles, Check, X
 } from 'lucide-react'
 import RouteMapMock from '../components/RouteMapMock'
+import CinematicHero from '../components/CinematicHero'
 
 function LandingPage() {
   const navigate = useNavigate()
 
   return (
     <div className="landing">
-      {/* NAVBAR */}
-      <nav className="landing-nav">
-        <div className="brand">
-          <span className="brand-triangle">▲</span>
-          <span>RouteWise</span>
-        </div>
-        <div className="nav-links">
-          <a href="#how">How it works</a>
-          <a href="#showcase">Features</a>
-          <a href="#drivers">For drivers</a>
-        </div>
-        <div className="nav-right">
-          <a href="#signin" className="nav-signin">Sign in</a>
-          <button className="nav-cta" onClick={() => navigate('/app')}>Try RouteWise →</button>
-        </div>
-      </nav>
-
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-left">
-          <span className="eyebrow">PERSONALIZED NAVIGATION</span>
-          <h1>The route<br />that <span className="highlight">fits you.</span></h1>
-          <p className="hero-sub">
-            Not just the fastest route. RouteWise considers your vehicle, driving
-            comfort and real-world road conditions to recommend the route that suits you.
-          </p>
-          <div className="hero-actions">
-            <button className="btn-primary" onClick={() => navigate('/app')}>
-              Try RouteWise <ArrowRight size={16} />
-            </button>
-            <button className="btn-text">
-              <PlayCircle size={18} /> See how it works
-            </button>
-          </div>
-          <div className="differentiator-row">
-            <span><Car size={14} /> Vehicle-aware</span>
-            <span><Gauge size={14} /> Comfort-aware</span>
-            <span><MessageSquareText size={14} /> Explainable</span>
-          </div>
-        </div>
-
-        <div className="hero-right">
-          <RouteMapMock showWhyCard showVehicleChip />
-        </div>
-      </section>
+      <CinematicHero />
 
       {/* FASTEST VS ROUTEWISE */}
       <section className="compare-section">

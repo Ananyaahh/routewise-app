@@ -1,0 +1,256 @@
+.js {
+  --graphite: #151817;
+  --charcoal: #202421;
+  --amber: #e99b69;
+  --sage: #86a98b;
+  --ivory: #f0e9dc;
+  --muted: #a9ada5;
+  --line: rgba(240, 233, 220, 0.12);
+  --pad: clamp(20px, 5vw, 72px);
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  color: var(--ivory);
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--graphite);
+}
+
+.js-inner {
+  width: min(1200px, calc(100% - 2 * var(--pad)));
+  margin: 0 auto;
+}
+
+/* ---------- photographic background (fixed, never stretched) ---------- */
+.js-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--graphite) url('/images/ishaan-sen-t9a9ozSCJ2I-unsplash.jpg') center 56% / cover no-repeat;
+}
+
+.js-shade {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(21, 24, 23, 0.86) 0%, rgba(21, 24, 23, 0.55) 45%, rgba(21, 24, 23, 0.3) 100%),
+    linear-gradient(0deg, rgba(21, 24, 23, 0.8) 0%, rgba(21, 24, 23, 0) 45%),
+    linear-gradient(180deg, rgba(21, 24, 23, 0.6) 0%, rgba(21, 24, 23, 0) 25%);
+}
+
+/* ---------- header ---------- */
+.js-header {
+  position: relative;
+  z-index: 2;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.js-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.js-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ivory);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.js-brand svg {
+  color: var(--amber);
+}
+
+.js-planning {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.js-planning-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.js-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ivory);
+  opacity: 0.75;
+  text-decoration: none;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.js-back:hover {
+  opacity: 1;
+}
+
+/* ---------- progress ---------- */
+.js-progress {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 26px 0 0;
+  max-width: 640px;
+}
+
+.js-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  color: var(--muted);
+}
+
+.js-step:last-child {
+  flex: none;
+}
+
+.js-step:not(:last-child)::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  margin: 0 14px;
+  background: var(--line);
+}
+
+.js-step-num {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 233, 220, 0.22);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.js-step-label {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.js-step.is-current {
+  color: var(--ivory);
+}
+
+.js-step.is-current .js-step-num {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--graphite);
+}
+
+.js-step.is-done {
+  color: var(--sage);
+}
+
+.js-step.is-done .js-step-num {
+  border-color: var(--sage);
+}
+
+.js-step.is-done:not(:last-child)::after {
+  background: rgba(134, 169, 139, 0.5);
+}
+
+/* ---------- body ---------- */
+.js-body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding: 40px 0 72px;
+}
+
+/* shared button + link styles used by the journey pages */
+.js-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border: 1px solid var(--amber);
+  border-radius: 8px;
+  background: var(--amber);
+  color: var(--graphite);
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
+.js-btn-primary:hover {
+  background: #f0aa7c;
+  border-color: #f0aa7c;
+}
+
+.js-btn-primary[aria-disabled='true'] {
+  opacity: 0.5;
+}
+
+.js-btn-primary[aria-disabled='true']:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.js a:focus-visible,
+.js button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+  .js-bg {
+    background-position: 36% center;
+  }
+  .js-planning {
+    display: none;
+  }
+  .js-header {
+    padding: 16px 0;
+  }
+  .js-body {
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-step.is-upcoming .js-step-label,
+  .js-step.is-done .js-step-label {
+    display: none;
+  }
+  .js-step:not(:last-child)::after {
+    margin: 0 8px;
+  }
+}

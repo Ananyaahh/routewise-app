@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+/* RouteWise cinematic hero — palette scoped to this component only */
+.ch-hero {
+  --navy: #0b1120;
+  --graphite: #151922;
+  --slate: #30394a;
+  --blue: #3b82f6;
+  --white: #f8fafc;
+  --muted: #a7b0c0;
+  --pad: clamp(20px, 5vw, 72px);
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--white);
+  font-family: 'Inter', system-ui, sans-serif;
+  /* poster image shows while the video loads, or if it can't play */
+  background-color: var(--navy);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------- video + overlay ---------- */
+.ch-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.ch-video.is-ready {
+  opacity: 1;
+}
+
+.ch-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(11, 17, 32, 0.9) 0%, rgba(11, 17, 32, 0.55) 34%, rgba(11, 17, 32, 0) 68%),
+    linear-gradient(0deg, rgba(11, 17, 32, 0.92) 0%, rgba(11, 17, 32, 0) 40%),
+    linear-gradient(180deg, rgba(11, 17, 32, 0.6) 0%, rgba(11, 17, 32, 0) 22%);
+}
+
+/* ---------- nav ---------- */
+.ch-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px var(--pad);
+  border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+  animation: ch-fade 1s ease-out both;
+}
+
+.ch-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.ch-brand-mark {
+  color: var(--blue);
+}
+
+.ch-nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.ch-nav-links a {
+  color: var(--white);
+  opacity: 0.72;
+  text-decoration: none;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: opacity 0.25s;
+}
+
+.ch-nav-links a:hover {
+  opacity: 1;
+}
+
+.ch-nav-cta {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(248, 250, 252, 0.35);
+  border-radius: 4px;
+  padding: 10px 20px;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.ch-nav-cta:hover {
+  background: rgba(248, 250, 252, 0.08);
+  border-color: var(--white);
+}
+
+/* ---------- main ---------- */
+.ch-main {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 48px;
+  padding: 56px var(--pad) 56px;
+}
+
+.ch-content {
+  max-width: 760px;
+}
+
+.ch-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 28px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: ch-rise 1s ease-out 0.3s both;
+}
+
+.ch-eyebrow::before {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.ch-headline {
+  margin: 0;
+  max-width: 13ch;
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-size: clamp(46px, 6.6vw, 98px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--white);
+  animation: ch-rise 1.1s ease-out 0.55s both;
+}
+
+.ch-headline em {
+  font-style: italic;
+  color: #cfe0ff;
+}
+
+.ch-sub {
+  margin: 30px 0 0;
+  max-width: 440px;
+  font-size: clamp(15px, 1.35vw, 17px);
+  line-height: 1.7;
+  color: rgba(248, 250, 252, 0.78);
+  animation: ch-rise 1s ease-out 0.9s both;
+}
+
+.ch-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+  margin-top: 40px;
+  animation: ch-rise 1s ease-out 1.15s both;
+}
+
+.ch-btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  border: 1px solid var(--blue);
+  border-radius: 6px;
+  padding: 16px 30px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.ch-btn-primary:hover {
+  background: #5b9bff;
+  border-color: #5b9bff;
+}
+
+.ch-btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(248, 250, 252, 0.4);
+  transition: border-color 0.25s, gap 0.25s;
+}
+
+.ch-btn-link:hover {
+  border-color: var(--white);
+  gap: 14px;
+}
+
+.ch-hero a:focus-visible,
+.ch-hero button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+/* ---------- bottom strip ---------- */
+.ch-strip {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  padding: 0 var(--pad);
+  border-top: 1px solid rgba(248, 250, 252, 0.14);
+  animation: ch-fade 1.2s ease-out 1.6s both;
+}
+
+.ch-strip span {
+  padding: 20px 40px 20px 0;
+  margin-right: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-right: 1px solid rgba(248, 250, 252, 0.14);
+}
+
+.ch-strip span:last-child {
+  border-right: none;
+  margin-right: 0;
+}
+
+/* ---------- animation ---------- */
+@keyframes ch-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ch-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch-hero *,
+  .ch-hero *::before,
+  .ch-hero *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1000px) {
+  .ch-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .ch-nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .ch-nav {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .ch-main {
+    padding-bottom: 36px;
+  }
+  .ch-headline {
+    max-width: 11ch;
+  }
+  .ch-actions {
+    gap: 22px;
+  }
+  .ch-strip {
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .ch-strip span {
+    padding: 0;
+    margin: 0;
+    border-right: none;
+    font-size: 10px;
+  }
+}
